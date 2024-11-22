@@ -7,7 +7,7 @@ class Player:
         self.image = pygame.image.load('PlayerSpace.png')
         self.image = pygame. transform.scale(self.image, (size, size))
         self.size = size
-        self.speed = 2
+        self.speed = 8
 
     def move_left(self):
         if self.x > 0:
