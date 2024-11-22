@@ -12,9 +12,11 @@ class Player:
     def move_left(self):
         if self.x > 0:
             self.x -= self.speed
+        print("funcionaesquerda")
     def move_right(self):
         if self.x < 800 - self.size:
             self.x += self.speed
+        print("funcionadireita")
 
     def draw(self, screen):
         screen.blit(self.image,  (self.x, self.y))

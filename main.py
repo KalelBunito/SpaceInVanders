@@ -12,21 +12,23 @@ bullets = []
 
 while True:
     screen.fill((0, 0, 0))
+    current_time = pygame.time.get_ticks()  # Tempo atual do jogo
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
     
     # VERIFICAR SE AS TECLAS FORAM PRESSIONADAS
-        if event.type == pygame.KEYDOWN:
+            keys = pygame.key.get_pressed()
 
-            if event.key == pygame.K_SPACE:
+            if keys[pygame.K_SPACE]:
                 bullets.append(player.shoot())
+                last_shot = current_time
 
-            if event.key == pygame.K_LEFT or event.key == pygame.K_a:
+            if keys[pygame.K_LEFT]:
                 player.move_left()
 
-            elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+            if keys[pygame.K_RIGHT]:
                 player.move_right()
             
             for bullet in bullets[:]:
