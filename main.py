@@ -8,6 +8,7 @@ screen = pygame.display.set_mode((800,600))
 pygame.display.set_caption("Player Game")
 
 player = Player(370, 500, 50)
+bullets = []
 
 while True:
     screen.fill((0, 0, 0))
@@ -18,11 +19,18 @@ while True:
     
     # VERIFICAR SE AS TECLAS FORAM PRESSIONADAS
     if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_SPACE:
+            bullets.append(player.shoot())
+
         if event.key == pygame.K_LEFT or event.key == pygame.K_a:
             player.move_left()
 
         elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-            player.move_right() 
+            player.move_right()
+        
+        for bullet in bullets[:]:
+            bullet.move()
+            bullet.draw(screen)
 
     player.draw(screen)
     pygame.display.update()
