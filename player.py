@@ -7,16 +7,12 @@ class Player:
         self.image = pygame.image.load('PlayerSpace.png')
         self.image = pygame. transform.scale(self.image, (size, size))
         self.size = size
-        self.speed = 8
+        self.speed = 2
 
     def move_left(self):
-        if self.x > 0:
-            self.x -= self.speed
-        print("funcionaesquerda")
+        self.x -= self.speed
     def move_right(self):
-        if self.x < 800 - self.size:
-            self.x += self.speed
-        print("funcionadireita")
+        self.x += self.speed
 
     def draw(self, screen):
         screen.blit(self.image,  (self.x, self.y))
